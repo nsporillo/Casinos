@@ -1,0 +1,8 @@
+name: Casino
+author: milkywayz 
+main: net.milkycraft.casino.Casinos
+website: http://milkycraft.net
+version: 1.0
+
+commands:
+    casino:

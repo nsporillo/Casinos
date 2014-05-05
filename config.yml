@@ -1,0 +1,17 @@
+odds:
+  total:
+    total: 50
+  coal: 
+    count: 10
+  diamond:
+    count: 4
+  golden_apple: 
+    count: 6
+  iron_Ingot: 
+    count: 10 
+  gold_Ingot:
+    count: 8
+  exp_Bottle: 
+    count: 7 
+  emerald:
+    count: 5
