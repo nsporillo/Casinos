@@ -1,7 +1,5 @@
 package net.milkycraft.casino;
 
-import java.util.ConcurrentModificationException;
-
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.Material;
@@ -35,15 +33,11 @@ public class CasinoListener implements Listener {
 		if (e.getAction() == Action.RIGHT_CLICK_BLOCK) {
 			if (b.getType() == Material.STONE_BUTTON) {
 				if (b.hasMetadata("slot")) {
-					try {
-						for (Casino c : cas.getCasinos()) {
-							if (matches(b, c.getClicker())) {
-								play(c, p);
-								return;
-							}
+					for (Casino c : cas.getCasinos()) {
+						if (matches(b, c.getClicker())) {
+							play(c, p);
+							return;
 						}
-					} catch (ConcurrentModificationException ex) {
-						return;
 					}
 				}
 			}
