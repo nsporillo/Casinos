@@ -9,6 +9,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Random;
+import java.util.concurrent.CopyOnWriteArrayList;
 
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.economy.EconomyResponse;
@@ -39,7 +40,7 @@ public class Casinos extends JavaPlugin {
 	@Override
 	public void onEnable() {
 		commands = new CommandHandler(this);
-		casinos = new ArrayList<Casino>();
+		casinos = new CopyOnWriteArrayList<Casino>();
 		muteList = new ArrayList<String>();
 		config = new Config(this, "config.yml");
 		stacks = new ItemStack[config.total];
