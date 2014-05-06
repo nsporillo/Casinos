@@ -156,22 +156,19 @@ public class StatisticManager {
 		}
 	}
 
-	public LinkedList<Map.Entry<String, Integer>> doSort(
-			LinkedHashMap<String, Integer> base) {
+	public LinkedList<Map.Entry<String, Integer>> doSort(LinkedHashMap<String, Integer> base) {
 		LinkedList<Map.Entry<String, Integer>> list = new LinkedList<Map.Entry<String, Integer>>(
 				base.entrySet());
 		Collections.sort(list, new Comparator<Map.Entry<String, Integer>>() {
 			@Override
-			public int compare(Map.Entry<String, Integer> o1,
-					Map.Entry<String, Integer> o2) {
+			public int compare(Map.Entry<String, Integer> o1, Map.Entry<String, Integer> o2) {
 				return o2.getValue().compareTo(o1.getValue());
 			}
 		});
 		return list;
 	}
 
-	public LinkedHashMap<String, Integer> getLeaders(
-			LinkedHashMap<String, Integer> base, int page) {
+	public LinkedHashMap<String, Integer> getLeaders(LinkedHashMap<String, Integer> base, int page) {
 		int search = page * 10 + 10;
 		if (base.size() / 10 < page) {
 			page = 0;

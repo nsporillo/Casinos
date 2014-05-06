@@ -15,23 +15,22 @@ import net.milkycraft.casino.stats.Metric;
 
 public class Board {
 
-	public static String[] getLines(Metric m,
-			LinkedHashMap<String, Integer> base) {
+	public static String[] getLines(Metric m, LinkedHashMap<String, Integer> base) {
 		List<String> e = new ArrayList<String>();
 		e.add(WHITE + "MilkyCraft Casino");
 		switch (m) {
-		case MOSTLUCKY:
-			e.add(YELLOW + "Most lucky");
-			break;
-		case MOSTPLAYS:
-			e.add(YELLOW + "Most plays");
-			break;
-		case MOSTSPENT:
-			e.add(YELLOW + "Most spent");
-			break;
-		case MOSTWINS:
-			e.add(YELLOW + "Most wins");
-			break;
+			case MOSTLUCKY:
+				e.add(YELLOW + "Most lucky");
+				break;
+			case MOSTPLAYS:
+				e.add(YELLOW + "Most plays");
+				break;
+			case MOSTSPENT:
+				e.add(YELLOW + "Most spent");
+				break;
+			case MOSTWINS:
+				e.add(YELLOW + "Most wins");
+				break;
 		}
 		int i = 0;
 		for (Entry<String, Integer> b : base.entrySet()) {
@@ -39,8 +38,8 @@ public class Board {
 			if (i > 10) {
 				break;
 			}
-			e.add(BLACK + "[" + WHITE + i + BLACK + "] " + GREEN + b.getKey()
-					+ YELLOW + "--" + GOLD + b.getValue());
+			e.add(BLACK + "[" + WHITE + i + BLACK + "] " + GREEN + b.getKey() + YELLOW + "--"
+					+ GOLD + b.getValue());
 		}
 		return (String[]) e.toArray(new String[e.size()]);
 	}

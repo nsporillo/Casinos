@@ -16,8 +16,7 @@ public class Button implements Serializable {
 
 	public Button(Block b) {
 		this.b = b;
-		loc = new SerialLocation(b.getWorld().getName(), b.getX(), b.getY(),
-				b.getZ());
+		loc = new SerialLocation(b.getWorld().getName(), b.getX(), b.getY(), b.getZ());
 	}
 
 	public void update() {

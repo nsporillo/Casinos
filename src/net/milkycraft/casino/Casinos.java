@@ -132,15 +132,15 @@ public class Casinos extends JavaPlugin {
 
 	public LowLevelStat getStat(Metric m) {
 		switch (m) {
-		case MOSTLUCKY:
-			return Casinos.manager.luck;
-		case MOSTPLAYS:
-			return Casinos.manager.plays;
-		case MOSTSPENT:
-			return Casinos.manager.spent;
-		case MOSTWINS:
-			return Casinos.manager.wins;
-		default:
+			case MOSTLUCKY:
+				return Casinos.manager.luck;
+			case MOSTPLAYS:
+				return Casinos.manager.plays;
+			case MOSTSPENT:
+				return Casinos.manager.spent;
+			case MOSTWINS:
+				return Casinos.manager.wins;
+			default:
 		}
 		return null;
 	}

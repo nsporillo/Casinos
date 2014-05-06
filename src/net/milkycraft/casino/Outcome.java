@@ -38,8 +38,7 @@ public class Outcome {
 	}
 
 	private String a(ItemStack i) {
-		return ChatColor.BLUE + i.getType().toString().toLowerCase()
-				+ ChatColor.GOLD;
+		return ChatColor.BLUE + i.getType().toString().toLowerCase() + ChatColor.GOLD;
 	}
 
 	@Override

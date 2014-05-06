@@ -13,8 +13,8 @@ import net.milkycraft.casino.Casino;
 
 public class Serializer {
 
-	public static File dir = new File("plugins" + File.separator + "Casino"
-			+ File.separator + "casinos");
+	public static File dir = new File("plugins" + File.separator + "Casino" + File.separator
+			+ "casinos");
 
 	public static void save(List<Casino> casinos) {
 		if (!dir.exists()) {

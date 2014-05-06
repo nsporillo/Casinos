@@ -10,8 +10,7 @@ public class Stat {
 	private String casino;
 	private int cost;
 
-	public Stat(GameResult result, String player, String casino, int cost,
-			long date) {
+	public Stat(GameResult result, String player, String casino, int cost, long date) {
 		this.result = result;
 		this.player = player;
 		this.cost = cost;

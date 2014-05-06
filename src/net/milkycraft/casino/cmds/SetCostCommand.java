@@ -40,11 +40,10 @@ public class SetCostCommand extends BaseCommand {
 						int a = Integer.valueOf(args.get(1));
 						if (a > 99 && a <= 500) {
 							c.setCost(Integer.valueOf(args.get(1)));
-							sender.sendMessage(RED + "Set the cost of"
-									+ args.get(0) + " to " + args.get(1));
+							sender.sendMessage(RED + "Set the cost of" + args.get(0) + " to "
+									+ args.get(1));
 						} else {
-							sender.sendMessage(RED
-									+ "Cost must be between 100 and 500");
+							sender.sendMessage(RED + "Cost must be between 100 and 500");
 						}
 					} else {
 						sender.sendMessage(RED + "You don't own that machine");

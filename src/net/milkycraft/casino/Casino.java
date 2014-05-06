@@ -42,8 +42,7 @@ public class Casino implements Serializable {
 
 	public void update() {
 		this.running = false;
-		this.getClicker().setMetadata("slot",
-				new FixedMetadataValue(plugin, "slot"));
+		this.getClicker().setMetadata("slot", new FixedMetadataValue(plugin, "slot"));
 		button.update();
 		sign.update();
 	}
@@ -58,16 +57,15 @@ public class Casino implements Serializable {
 			s.update();
 		}
 		final Outcome out = new Outcome(plugin);
-		final BukkitTask task = Bukkit.getScheduler().runTaskTimer(plugin,
-				new Runnable() {
-					@Override
-					public void run() {
-						for (Slot s : slots) {
-							s.setImage(out.getRandom());
-						}
-						play(p, 6, 1, Sound.ORB_PICKUP, 0.4F, 0);
-					}
-				}, 0L, 5L);
+		final BukkitTask task = Bukkit.getScheduler().runTaskTimer(plugin, new Runnable() {
+			@Override
+			public void run() {
+				for (Slot s : slots) {
+					s.setImage(out.getRandom());
+				}
+				play(p, 6, 1, Sound.ORB_PICKUP, 0.4F, 0);
+			}
+		}, 0L, 5L);
 		Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
 			@Override
 			public void run() {
@@ -87,24 +85,21 @@ public class Casino implements Serializable {
 		} else {
 			SignHandler.win(s, g);
 		}
-		p.sendMessage(ChatColor.GREEN + "[Casino] " + ChatColor.GOLD
-				+ g.getOutcome().toString());
+		p.sendMessage(ChatColor.GREEN + "[Casino] " + ChatColor.GOLD + g.getOutcome().toString());
 		reward(p, g);
-		final BukkitTask task1 = Bukkit.getScheduler().runTaskTimer(plugin,
-				new Runnable() {
-					@Override
-					public void run() {
-						if (!running || g.getCount() == Count.LOST) {
-							return;
-						}
-						for (Slot s : slots) {
-							if (s.getFrame().getItem().getType() == g.getItem()
-									.getType()) {
-								rotate(s.getFrame());
-							}
-						}
+		final BukkitTask task1 = Bukkit.getScheduler().runTaskTimer(plugin, new Runnable() {
+			@Override
+			public void run() {
+				if (!running || g.getCount() == Count.LOST) {
+					return;
+				}
+				for (Slot s : slots) {
+					if (s.getFrame().getItem().getType() == g.getItem().getType()) {
+						rotate(s.getFrame());
 					}
-				}, 0L, 5L);
+				}
+			}
+		}, 0L, 5L);
 		Bukkit.getScheduler().runTaskLater(plugin, new Runnable() {
 			@Override
 			public void run() {
@@ -117,8 +112,7 @@ public class Casino implements Serializable {
 				}
 				SignHandler.update(s, cost, owner);
 				Casinos.getManager().processStat(
-						new Stat(g, p.getName(), name, cost, System
-								.currentTimeMillis()));
+						new Stat(g, p.getName(), name, cost, System.currentTimeMillis()));
 				play(p, 10, 1, Sound.ANVIL_LAND, 2, 1);
 				running = false;
 			}

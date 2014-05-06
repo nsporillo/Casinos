@@ -35,8 +35,7 @@ public class SerialLocation implements Serializable {
 
 	@Override
 	public String toString() {
-		return "SerialLocation [world=" + world + ", x=" + x + ", y=" + y
-				+ ", z=" + z + "]";
+		return "SerialLocation [world=" + world + ", x=" + x + ", y=" + y + ", z=" + z + "]";
 	}
 
 	public String getCompressed() {

@@ -39,8 +39,7 @@ public class OwnerCommand extends BaseCommand {
 					c.setOwner(args.get(1));
 				}
 			}
-			sender.sendMessage(RED + "Set the owner of" + args.get(0) + " to "
-					+ args.get(1));
+			sender.sendMessage(RED + "Set the owner of" + args.get(0) + " to " + args.get(1));
 		}
 	}
 }

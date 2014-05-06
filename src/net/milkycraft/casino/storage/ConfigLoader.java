@@ -28,8 +28,7 @@ public abstract class ConfigLoader {
 	protected ConfigLoader(Casinos plugin, String directory, String name) {
 		this.plugin = plugin;
 		this.fileName = name;
-		this.dataFolder = new File(plugin.getDataFolder(), File.separator
-				+ directory);
+		this.dataFolder = new File(plugin.getDataFolder(), File.separator + directory);
 		this.configFile = new File(this.dataFolder, File.separator + fileName);
 		config = loadConfiguration(this.configFile);
 	}

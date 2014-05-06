@@ -15,8 +15,7 @@ public class CasinoSign implements Serializable {
 
 	public CasinoSign(Sign s) {
 		this.s = s;
-		this.loc = new SerialLocation(s.getWorld().getName(), s.getX(),
-				s.getY(), s.getZ());
+		this.loc = new SerialLocation(s.getWorld().getName(), s.getX(), s.getY(), s.getZ());
 	}
 
 	public void write(String line, int num) {

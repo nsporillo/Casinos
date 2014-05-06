@@ -28,8 +28,7 @@ public abstract class BaseCommand implements Command {
 		this.plugin = plugin;
 	}
 
-	protected final void addUsage(final String sub1, final String sub2,
-			final String description) {
+	protected final void addUsage(final String sub1, final String sub2, final String description) {
 		final StringBuilder usage = new StringBuilder().append(BLUE).append(
 				String.format("%1$-" + 8 + "s", this.name));
 		if (sub1 != null) {
@@ -60,8 +59,7 @@ public abstract class BaseCommand implements Command {
 	}
 
 	protected void noPermission(final CommandSender sender) {
-		sender.sendMessage(RED
-				+ "You do not have permission to use that command!");
+		sender.sendMessage(RED + "You do not have permission to use that command!");
 	}
 
 	protected final void setName(final String name) {
@@ -79,8 +77,7 @@ public abstract class BaseCommand implements Command {
 	@Override
 	public void showHelp(final CommandSender sender, final String label) {
 		for (final String usage : this.usages) {
-			sender.sendMessage(GRAY + String.format("%1$-" + 10 + "s", label)
-					+ usage);
+			sender.sendMessage(GRAY + String.format("%1$-" + 10 + "s", label) + usage);
 		}
 	}
 }

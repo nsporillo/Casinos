@@ -68,13 +68,12 @@ public class CreateCommand extends BaseCommand {
 				Location x2 = mid.clone().add(1, 0, 1);
 				Location[] locs = new Location[9];
 				int i = 0;
-				for (int x = Math.min(x1.getBlockX(), x2.getBlockX()); x <= Math
-						.max(x1.getBlockX(), x2.getBlockX()); x++) {
-					for (int z = Math.min(x1.getBlockZ(), x2.getBlockZ()); z <= Math
-							.max(x1.getBlockZ(), x2.getBlockZ()); z++) {
+				for (int x = Math.min(x1.getBlockX(), x2.getBlockX()); x <= Math.max(
+						x1.getBlockX(), x2.getBlockX()); x++) {
+					for (int z = Math.min(x1.getBlockZ(), x2.getBlockZ()); z <= Math.max(
+							x1.getBlockZ(), x2.getBlockZ()); z++) {
 						System.out.println("x: " + x + " - z: " + z);
-						locs[i] = new Location(mid.getWorld(), x,
-								mid.getBlockY(), z);
+						locs[i] = new Location(mid.getWorld(), x, mid.getBlockY(), z);
 						i++;
 					}
 				}

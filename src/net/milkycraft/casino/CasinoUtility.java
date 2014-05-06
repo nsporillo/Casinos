@@ -18,8 +18,7 @@ import org.bukkit.inventory.ItemStack;
 public class CasinoUtility {
 
 	private static String pre = GREEN + "[Casino] ";
-	private static String lost = pre + RED
-			+ "Sorry but you lost, better luck next time";
+	private static String lost = pre + RED + "Sorry but you lost, better luck next time";
 	private static String two = pre + GOLD + "Congrats, you won 3 %as";
 	private static String three = pre + GOLD + "Congrats, you won 5 %as";
 
@@ -28,22 +27,22 @@ public class CasinoUtility {
 		String a = s.getType().toString().toLowerCase();
 		Inventory i = p.getInventory();
 		switch (result.getCount()) {
-		case LOST:
-			p.sendMessage(lost);
-			play(p, 20, 1, Sound.IRONGOLEM_HIT, 5, 1);
-			break;
-		case THREE:
-			s.setAmount(5);
-			p.sendMessage(three.replace("%a", a));
-			play(p, 30, 10, Sound.LEVEL_UP, 3, 5);
-			i.addItem(s);
-			break;
-		case TWO:
-			s.setAmount(3);
-			p.sendMessage(two.replace("%a", a));
-			play(p, 30, 5, Sound.LEVEL_UP, 1.5F, 5);
-			i.addItem(s);
-			break;
+			case LOST:
+				p.sendMessage(lost);
+				play(p, 20, 1, Sound.IRONGOLEM_HIT, 5, 1);
+				break;
+			case THREE:
+				s.setAmount(5);
+				p.sendMessage(three.replace("%a", a));
+				play(p, 30, 10, Sound.LEVEL_UP, 3, 5);
+				i.addItem(s);
+				break;
+			case TWO:
+				s.setAmount(3);
+				p.sendMessage(two.replace("%a", a));
+				play(p, 30, 5, Sound.LEVEL_UP, 1.5F, 5);
+				i.addItem(s);
+				break;
 		}
 	}
 
@@ -71,18 +70,18 @@ public class CasinoUtility {
 	public static void rotate(ItemFrame i) {
 		Rotation r = i.getRotation();
 		switch (r) {
-		case CLOCKWISE:
-			i.setRotation(Rotation.FLIPPED);
-			break;
-		case COUNTER_CLOCKWISE:
-			i.setRotation(Rotation.NONE);
-			break;
-		case FLIPPED:
-			i.setRotation(Rotation.COUNTER_CLOCKWISE);
-			break;
-		case NONE:
-			i.setRotation(Rotation.CLOCKWISE);
-			break;
+			case CLOCKWISE:
+				i.setRotation(Rotation.FLIPPED);
+				break;
+			case COUNTER_CLOCKWISE:
+				i.setRotation(Rotation.NONE);
+				break;
+			case FLIPPED:
+				i.setRotation(Rotation.COUNTER_CLOCKWISE);
+				break;
+			case NONE:
+				i.setRotation(Rotation.CLOCKWISE);
+				break;
 		}
 	}
 }

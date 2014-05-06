@@ -20,8 +20,8 @@ public class Slot implements Serializable {
 		this.parent = p;
 		this.frame = frame;
 		Location l = frame.getLocation();
-		this.loc = new SerialLocation(l.getWorld().getName(), l.getBlockX(),
-				l.getBlockY(), l.getBlockZ());
+		this.loc = new SerialLocation(l.getWorld().getName(), l.getBlockX(), l.getBlockY(),
+				l.getBlockZ());
 	}
 
 	public Casino getParent() {

@@ -68,8 +68,7 @@ public class CasinoListener implements Listener {
 					cas.pay(c.getOwner(), cost);
 				}
 			} else {
-				p.sendMessage(ChatColor.RED
-						+ "Your broke fool! Get some money!");
+				p.sendMessage(ChatColor.RED + "Your broke fool! Get some money!");
 			}
 		} else {
 			p.playSound(p.getLocation(), Sound.IRONGOLEM_DEATH, 1F, 0);
@@ -84,8 +83,7 @@ public class CasinoListener implements Listener {
 					if (s.getFrame() == null) {
 						continue;
 					}
-					if (matches(e.getRightClicked().getLocation(),
-							s.getLocation())) {
+					if (matches(e.getRightClicked().getLocation(), s.getLocation())) {
 						e.setCancelled(true);
 					}
 				}
