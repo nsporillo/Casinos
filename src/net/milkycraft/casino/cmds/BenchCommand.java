@@ -1,7 +1,6 @@
 package net.milkycraft.casino.cmds;
 
-import static org.bukkit.ChatColor.GOLD;
-import static org.bukkit.ChatColor.RED;
+import static org.bukkit.ChatColor.*;
 
 import java.util.List;
 
@@ -22,33 +21,31 @@ public class BenchCommand extends BaseCommand {
 	}
 
 	@Override
-	public void runCommand(CommandSender sender, List<String> args) {
-		if (!this.checkPermission(sender)) {
-			this.noPermission(sender);
+	public void runCommand(CommandSender s, List<String> args) {
+		if (!this.checkPermission(s)) {
+			this.noPermission(s);
 			return;
 		}
-
 		if (args.size() == 1) {
 			String num = args.get(0);
 			Integer x = Integer.parseInt(num);
-			int lost = 0;
-			int two = 0;
-			int three = 0;
+			int[] outcome = new int[3];
 			for (int i = 0; i < x; i++) {
 				Outcome out = new Outcome(plugin);
 				GameResult gr = out.getResult();
 				if (gr.getCount() == Count.LOST) {
-					lost++;
+					outcome[0]++;
 				} else if (gr.getCount() == Count.TWO) {
-					two++;
+					outcome[1]++;
 				} else if (gr.getCount() == Count.THREE) {
-					three++;
+					outcome[2]++;
 				}
 			}
-			sender.sendMessage(RED + "Lost: " + lost + " of " + x);
-			sender.sendMessage(RED + "Two: " + two + " of " + x);
-			sender.sendMessage(RED + "Three: " + three + " of " + x);
-			sender.sendMessage(GOLD + "Won: " + (two + three) + " of " + x);
+			s.sendMessage(GREEN + "Based on " + x + " outcomes...");
+			s.sendMessage(RED + "Lost: " + outcome[0] + " of " + x);
+			s.sendMessage(RED + "Two: " + outcome[1] + " of " + x);
+			s.sendMessage(RED + "Three: " + outcome[2] + " of " + x);
+			s.sendMessage(GOLD + "Won: " + (outcome[1] + outcome[2]) + " of " + x);
 		}
 	}
 }
