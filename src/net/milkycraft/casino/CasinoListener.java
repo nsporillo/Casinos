@@ -18,6 +18,8 @@ import org.bukkit.event.hanging.HangingBreakByEntityEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerInteractEvent;
 
+import static net.milkycraft.casino.CasinoUtility.matches;
+
 public class CasinoListener implements Listener {
 
 	private Casinos cas;
@@ -34,7 +36,7 @@ public class CasinoListener implements Listener {
 			if (b.getType() == Material.STONE_BUTTON) {
 				if (b.hasMetadata("slot")) {
 					for (Casino c : cas.getCasinos()) {
-						if (matches(b, c.getClicker())) {
+						if (isClicker(b, c.getClicker())) {
 							play(c, p);
 							return;
 						}
@@ -44,7 +46,7 @@ public class CasinoListener implements Listener {
 		}
 	}
 
-	private boolean matches(Block a, Block b) {
+	private boolean isClicker(Block a, Block b) {
 		Location x = a.getLocation();
 		Location y = b.getLocation();
 		if (x.getWorld().getName().equals(y.getWorld().getName())) {
@@ -91,18 +93,7 @@ public class CasinoListener implements Listener {
 		}
 	}
 
-	public boolean matches(Location b, SerialLocation s) {
-		if (s.world.equals(b.getWorld().getName())) {
-			if (s.x == b.getBlockX()) {
-				if (s.y == b.getBlockY()) {
-					if (s.z == b.getBlockZ()) {
-						return true;
-					}
-				}
-			}
-		}
-		return false;
-	}
+	
 
 	@EventHandler(priority = EventPriority.HIGHEST, ignoreCancelled = true)
 	public void onHangingingBreak(HangingBreakByEntityEvent event) {
