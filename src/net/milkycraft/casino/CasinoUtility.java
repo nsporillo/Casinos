@@ -7,6 +7,7 @@ import static org.bukkit.ChatColor.RED;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.bukkit.Location;
 import org.bukkit.Rotation;
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
@@ -83,5 +84,18 @@ public class CasinoUtility {
 				i.setRotation(Rotation.CLOCKWISE);
 				break;
 		}
+	}
+	
+	public static boolean matches(Location b, SerialLocation s) {
+		if (s.world.equals(b.getWorld().getName())) {
+			if (s.x == b.getBlockX()) {
+				if (s.y == b.getBlockY()) {
+					if (s.z == b.getBlockZ()) {
+						return true;
+					}
+				}
+			}
+		}
+		return false;
 	}
 }
