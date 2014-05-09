@@ -72,7 +72,6 @@ public class CreateCommand extends BaseCommand {
 						x1.getBlockX(), x2.getBlockX()); x++) {
 					for (int z = Math.min(x1.getBlockZ(), x2.getBlockZ()); z <= Math.max(
 							x1.getBlockZ(), x2.getBlockZ()); z++) {
-						System.out.println("x: " + x + " - z: " + z);
 						locs[i] = new Location(mid.getWorld(), x, mid.getBlockY(), z);
 						i++;
 					}

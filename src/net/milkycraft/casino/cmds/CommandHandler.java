@@ -11,9 +11,6 @@ import net.milkycraft.casino.Casinos;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 
-/**
- * @author krinsdeath
- */
 public class CommandHandler {
 
 	private final Casinos plugin;
@@ -33,7 +30,7 @@ public class CommandHandler {
 
 	public void runCommand(CommandSender s, String label, String[] args) {
 		if (args.length == 0 || this.commands.get(args[0].toLowerCase()) == null) {
-			s.sendMessage(ChatColor.GREEN + "===" + ChatColor.GOLD + " MilkyCasino Help "
+			s.sendMessage(ChatColor.GREEN + "===" + ChatColor.GOLD + " Casinos Help "
 					+ ChatColor.GREEN + "===");
 			for (Command cmd : this.commands.values()) {
 				if (cmd.checkPermission(s)) {

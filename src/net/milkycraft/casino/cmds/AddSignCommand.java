@@ -44,7 +44,6 @@ public class AddSignCommand extends BaseCommand {
 					} else {
 						sender.sendMessage(RED + "Look at a sign");
 					}
-					continue;
 				}
 			}
 		}

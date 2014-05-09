@@ -63,7 +63,6 @@ public class Serializer {
 			}
 			for (File f : dir.listFiles()) {
 				if (f.getName().endsWith(".casino")) {
-
 					Casino c = null;
 					FileInputStream fileIn = new FileInputStream(f);
 					ObjectInputStream in = new ObjectInputStream(fileIn);
