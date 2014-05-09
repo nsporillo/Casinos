@@ -29,6 +29,7 @@ public class ReloadCommand extends BaseCommand {
 			sender.sendMessage(RED + "Console cannot use this command");
 			return;
 		}
+		//TODO: Write method in main class specifically for reloading
 		plugin.onDisable();
 		plugin.onEnable();
 		sender.sendMessage(ChatColor.GREEN + "[MilkyCasino] Reloaded Casinos!");

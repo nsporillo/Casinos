@@ -19,6 +19,10 @@ public class Button implements Serializable {
 		loc = new SerialLocation(b.getWorld().getName(), b.getX(), b.getY(), b.getZ());
 	}
 
+	/**
+	 * After de-serialization, block reference must be updated
+	 * Since b is transient, update ref. with SerialLocation
+	 */
 	public void update() {
 		b = Bukkit.getWorld(loc.world).getBlockAt(loc.x, loc.y, loc.z);
 	}
