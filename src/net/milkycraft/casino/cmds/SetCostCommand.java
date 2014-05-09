@@ -35,16 +35,14 @@ public class SetCostCommand extends BaseCommand {
 			sender.sendMessage(RED + "You must specify a cost");
 		} else if (args.size() == 2) {
 			for (Casino c : plugin.getCasinos()) {
-				if (c.getName().equalsIgnoreCase(args.get(0))) {
+				String cas = args.get(0);
+				if (c.getName().equalsIgnoreCase(cas)) {
 					if (c.getOwner().equals(sender.getName()) || sender.isOp()) {
+						//TODO: Define configurable range of pricing 
+						//Old: {p|p >= 100 && p <= 500}
 						int a = Integer.valueOf(args.get(1));
-						if (a > 99 && a <= 500) {
-							c.setCost(Integer.valueOf(args.get(1)));
-							sender.sendMessage(RED + "Set the cost of" + args.get(0) + " to "
-									+ args.get(1));
-						} else {
-							sender.sendMessage(RED + "Cost must be between 100 and 500");
-						}
+						c.setCost(a);
+						sender.sendMessage(RED + "Set the cost of" + cas + " to " + a);
 					} else {
 						sender.sendMessage(RED + "You don't own that machine");
 					}
