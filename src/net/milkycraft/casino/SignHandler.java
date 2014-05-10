@@ -5,6 +5,8 @@ import org.bukkit.block.Sign;
 
 public class SignHandler {
 
+	//TODO: Make sign settings configurable?
+	
 	public static void start(Sign s, String name) {
 		setSign(s, 0, ChatColor.BLUE + name);
 		setSign(s, 1, ChatColor.DARK_BLUE + "Rolling!");
