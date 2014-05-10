@@ -39,12 +39,12 @@ public class Casinos extends JavaPlugin {
 
 	@Override
 	public void onEnable() {
+		this.saveDefaultConfig();
 		commands = new CommandHandler(this);
 		casinos = new CopyOnWriteArrayList<Casino>();
 		muteList = new ArrayList<String>();
 		config = new Config(this, "config.yml");
-		stacks = new ItemStack[config.total];
-		this.saveDefaultConfig();
+		stacks = new ItemStack[config.total];	
 		getPluginManager().registerEvents(new CasinoListener(this), this);
 		this.loadOdds();
 		casinos = Serializer.load();
@@ -59,13 +59,30 @@ public class Casinos extends JavaPlugin {
 
 	@Override
 	public void onDisable() {
-		try {
-			Casinos.manager.save();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+		Casinos.manager.save();
 		Serializer.save(casinos);
 		getServer().getScheduler().cancelTasks(this);
+	}
+
+	public void reload() {
+		// Disable methods
+		Bukkit.getScheduler().cancelTasks(this);
+		Casinos.manager.save();
+		Serializer.save(casinos);
+		Casinos.muteList.clear();		
+		// Enable methods
+		this.commands = new CommandHandler(this);
+		this.config = new Config(this, "config.yml");
+		this.stacks = new ItemStack[config.total];
+		getPluginManager().registerEvents(new CasinoListener(this), this);
+		this.loadOdds();
+		this.casinos = Serializer.load();
+		Casinos.manager.load();
+		for (Casino c : casinos) {
+			c.setHandle(this);
+			c.update();
+		}
+		this.econ = Bukkit.getServicesManager().getRegistration(Economy.class);
 	}
 
 	public static void info(String info) {

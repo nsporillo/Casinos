@@ -22,9 +22,7 @@ public class ReloadCommand extends BaseCommand {
 			this.noPermission(sender);
 			return;
 		}
-		//TODO: Write method in main class specifically for reloading
-		plugin.onDisable();
-		plugin.onEnable();
+		this.plugin.reload();
 		sender.sendMessage(ChatColor.GREEN + "[MilkyCasino] Reloaded Casinos!");
 	}
 
