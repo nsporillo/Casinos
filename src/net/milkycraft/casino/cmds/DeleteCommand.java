@@ -9,7 +9,6 @@ import net.milkycraft.casino.Casinos;
 import net.milkycraft.casino.storage.Serializer;
 
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
 
 public class DeleteCommand extends BaseCommand {
 
@@ -24,10 +23,6 @@ public class DeleteCommand extends BaseCommand {
 	public void runCommand(CommandSender sender, List<String> args) {
 		if (!this.checkPermission(sender)) {
 			this.noPermission(sender);
-			return;
-		}
-		if (sender instanceof ConsoleCommandSender) {
-			sender.sendMessage(RED + "Console cannot use this command");
 			return;
 		}
 		if (args.size() == 1) {

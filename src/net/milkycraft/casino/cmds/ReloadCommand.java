@@ -1,14 +1,11 @@
 package net.milkycraft.casino.cmds;
 
-import static org.bukkit.ChatColor.RED;
-
 import java.util.List;
 
 import net.milkycraft.casino.Casinos;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.command.ConsoleCommandSender;
 
 public class ReloadCommand extends BaseCommand {
 
@@ -23,10 +20,6 @@ public class ReloadCommand extends BaseCommand {
 	public void runCommand(CommandSender sender, List<String> args) {
 		if (!this.checkPermission(sender)) {
 			this.noPermission(sender);
-			return;
-		}
-		if (sender instanceof ConsoleCommandSender) {
-			sender.sendMessage(RED + "Console cannot use this command");
 			return;
 		}
 		//TODO: Write method in main class specifically for reloading
