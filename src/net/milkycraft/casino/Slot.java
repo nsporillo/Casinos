@@ -25,37 +25,32 @@ public class Slot implements Serializable {
 	}
 
 	public Casino getParent() {
-		return parent;
+		return this.parent;
 	}
 
 	public ItemFrame getFrame() {
-		return frame;
+		return this.frame;
 	}
 
 	public void setImage(ItemStack g) {
-		if (frame != null) {
-			frame.setItem(g);
+		if (this.frame != null) {
+			this.frame.setItem(g);
 		}
 	}
 
 	public SerialLocation getLocation() {
-		return loc;
+		return this.loc;
 	}
 
 	public void update() {
-		if (frame != null) {
+		if (this.frame != null) {
 			return;
 		}
 		World w = Bukkit.getWorld(loc.getWorld());
 		for (Entity e : w.getEntities()) {
 			if (e instanceof ItemFrame) {
-				Location l = e.getLocation();
-				if (l.getBlockX() == loc.x) {
-					if (l.getBlockY() == loc.y) {
-						if (l.getBlockZ() == loc.z) {
-							frame = (ItemFrame) e;
-						}
-					}
+				if(CasinoUtility.matches(e.getLocation(), loc)) {
+					this.frame = (ItemFrame) e;
 				}
 			}
 		}
