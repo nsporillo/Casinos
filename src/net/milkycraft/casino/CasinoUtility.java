@@ -9,6 +9,9 @@ import java.util.List;
 
 import org.bukkit.Location;
 import org.bukkit.Rotation;
+
+import static org.bukkit.Rotation.*;
+
 import org.bukkit.Sound;
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.ItemFrame;
@@ -23,6 +26,12 @@ public class CasinoUtility {
 	private static String two = pre + GOLD + "Congrats, you won 3 %as";
 	private static String three = pre + GOLD + "Congrats, you won 5 %as";
 
+	/**
+	 * TODO: Make settings configurable.. 
+	 * 
+	 * @param p
+	 * @param result
+	 */
 	public static void reward(Player p, GameResult result) {
 		ItemStack s = result.getItem();
 		String a = s.getType().toString().toLowerCase();
@@ -47,6 +56,15 @@ public class CasinoUtility {
 		}
 	}
 
+	/**
+	 * Sound effects method
+	 * @param p Base player
+	 * @param r Radius 
+	 * @param i Amount of sound plays
+	 * @param s Sound
+	 * @param x Sound settings
+	 * @param y Sound settings
+	 */
 	public static void play(Player p, int r, int i, Sound s, float x, float y) {
 		List<Entity> ens = p.getNearbyEntities(r, r, r);
 		List<Player> players = new ArrayList<Player>();
@@ -72,16 +90,16 @@ public class CasinoUtility {
 		Rotation r = i.getRotation();
 		switch (r) {
 			case CLOCKWISE:
-				i.setRotation(Rotation.FLIPPED);
+				i.setRotation(FLIPPED);
 				break;
 			case COUNTER_CLOCKWISE:
-				i.setRotation(Rotation.NONE);
+				i.setRotation(NONE);
 				break;
 			case FLIPPED:
-				i.setRotation(Rotation.COUNTER_CLOCKWISE);
+				i.setRotation(COUNTER_CLOCKWISE);
 				break;
 			case NONE:
-				i.setRotation(Rotation.CLOCKWISE);
+				i.setRotation(CLOCKWISE);
 				break;
 		}
 	}
