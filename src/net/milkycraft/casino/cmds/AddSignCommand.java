@@ -22,6 +22,7 @@ public class AddSignCommand extends BaseCommand {
 		super.setPermission("casinos.addsign");
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void runCommand(CommandSender sender, List<String> args) {
 		if (!this.checkPermission(sender)) {

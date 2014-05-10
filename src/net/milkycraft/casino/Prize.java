@@ -1,6 +1,7 @@
 package net.milkycraft.casino;
 
 import org.bukkit.inventory.ItemStack;
+import static org.bukkit.Material.AIR;
 
 public class Prize {
 
@@ -28,6 +29,6 @@ public class Prize {
 				return new GameResult(Count.TWO, g(0), out);
 			}
 		}
-		return new GameResult(Count.LOST, new ItemStack(0), out);
+		return new GameResult(Count.LOST, new ItemStack(AIR), out);
 	}
 }

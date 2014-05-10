@@ -34,6 +34,7 @@ public class CreateCommand extends BaseCommand {
 		fmv = new FixedMetadataValue(plugin, "slot");
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public void runCommand(CommandSender sender, List<String> args) {
 		if (!this.checkPermission(sender)) {

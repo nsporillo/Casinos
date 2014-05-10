@@ -1,5 +1,6 @@
 package net.milkycraft.casino;
 
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 
 public class GameResult {
@@ -16,7 +17,7 @@ public class GameResult {
 
 	public GameResult(Count c) {
 		this.c = c;
-		this.is = new ItemStack(0);
+		this.is = new ItemStack(Material.AIR);
 		this.out = null;
 	}
 

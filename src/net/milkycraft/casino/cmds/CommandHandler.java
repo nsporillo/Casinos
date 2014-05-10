@@ -13,11 +13,9 @@ import org.bukkit.command.CommandSender;
 
 public class CommandHandler {
 
-	private final Casinos plugin;
 	private final Map<String, Command> commands = new HashMap<String, Command>();
 
 	public CommandHandler(final Casinos plugin) {
-		this.plugin = plugin;
 		commands.put("create", new CreateCommand(plugin));
 		commands.put("mute", new MuteCommand(plugin));
 		commands.put("addsign", new AddSignCommand(plugin));

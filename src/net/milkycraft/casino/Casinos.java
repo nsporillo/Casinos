@@ -88,6 +88,7 @@ public class Casinos extends JavaPlugin {
 		Collections.shuffle(Arrays.asList(stacks));
 	}
 
+	@SuppressWarnings("deprecation")
 	private void put(int x, int y) {
 		ItemStack is = new ItemStack(x);
 		int z = getLeft();
