@@ -119,8 +119,8 @@ public class Casinos extends JavaPlugin {
 
     private int getLeft() {
         int last = 0;
-        for (int x = 0; x < stacks.length; x++) {
-            if (!(stacks[x] == null)) {
+        for (ItemStack stack : stacks) {
+            if (!(stack == null)) {
                 last++;
             }
         }
